@@ -13,5 +13,6 @@ namespace Xamarin_Gym.Infraestructura
         }
 
         public MainViewModel Main { get; set; }
+
     }
 }
