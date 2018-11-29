@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Xamarin_Gym.Infraestructura;assembly=Xamarin_Gym"
+             x:Class="Xamarin_Gym.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Colores-->
+            <Color x:Key="BackgroundColor">#EDF4F5</Color>
+            <Color x:Key="MenuColor">#036169</Color>
+            <Color x:Key="AccentColor1">#045659</Color>
+            
+            
+            <!--Instanciar Menu-->
+            <infra:InstanciarMenu x:Key="Locator"/>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
