@@ -15,6 +15,6 @@ namespace Xamarin_Gym.Paginas
 		public ListaEntrenadores ()
 		{
 			InitializeComponent ();
-		}
+        }
 	}
 }

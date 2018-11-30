@@ -6,7 +6,7 @@
              BackgroundColor="{StaticResource MenuColor}"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <ListView ItemsSource="{Binding Menu}">
+    <ListView ItemsSource="{Binding Menu}" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

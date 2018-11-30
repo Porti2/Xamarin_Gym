@@ -11,9 +11,12 @@ namespace Xamarin_Gym.ViewModels
         public MainViewModel()
         {
             LoadMenu();
+            LoadData();
         }
 
         public ObservableCollection<ItemsMenu> Menu { get; set; }
+        public ObservableCollection<DatosEntrenadores> VerEntrenadores { get; set; }
+
 
         private void LoadMenu()
         {
@@ -46,6 +49,25 @@ namespace Xamarin_Gym.ViewModels
                 Title = "Añadir Cliente",
                 PageName = "AltaCliente"
             });
+        }
+
+        private void LoadData()
+        {
+            VerEntrenadores = new ObservableCollection<DatosEntrenadores>();
+
+            for(int i = 0; i < 7; i++)
+            {
+                VerEntrenadores.Add(new DatosEntrenadores()
+                {
+                    Id = "1",
+                    Nombre = "Entrenador 1",
+                    DNI = 54987,
+                    Telefono = 65487634,
+                    Correo = "entrador1@gmail.com",
+                    Direccion = "Mozartr, 155",
+                    Ciudad = "Almeria"
+                });
+            }
         }
     }
 }
