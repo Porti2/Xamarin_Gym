@@ -4,7 +4,7 @@
              x:Class="Xamarin_Gym.Paginas.AltaCliente">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Alta Clientes"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

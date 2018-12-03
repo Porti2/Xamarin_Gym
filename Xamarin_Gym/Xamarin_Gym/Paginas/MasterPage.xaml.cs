@@ -19,6 +19,7 @@ namespace Xamarin_Gym.Paginas
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            App.Master = this;
             App.Navigator = this.Navigator;
         }
     }
