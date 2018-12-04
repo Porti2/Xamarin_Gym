@@ -11,7 +11,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage x:Name="Navigator" BarBackgroundColor="{StaticResource MenuColor}">
             <x:Arguments>
-                <paginas:ListaEntrenadores></paginas:ListaEntrenadores>
+                <paginas:PaginaView></paginas:PaginaView>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
