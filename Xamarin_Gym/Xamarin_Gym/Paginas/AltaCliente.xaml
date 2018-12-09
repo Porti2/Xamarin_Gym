@@ -1,12 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin_Gym.Paginas.AltaCliente">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Alta Clientes"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Xamarin_Gym.Paginas.AltaCliente"
+             Title="Añadir Cliente"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nuevo Cliente" FontSize="Large" 
+                   FontAttributes="Bold" Margin="0,10,0,0" TextColor="{StaticResource ColorTitulos}"
+                   HorizontalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+
+            <Label Text="Nombre y Apellidos: " Margin="0,10,0,0" 
+                   FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="1" Grid.ColumnSpan="2"/>
+
+            <Entry x:Name="NombreEntry" Placeholder="Nombre y Apellidos"
+                   Grid.Row="2" Grid.ColumnSpan="2"/>
+
+            <Label Text="DNI: " Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="3" Grid.Column="0"/>
+
+            <Entry x:Name="DNIEntry" Placeholder="DNI"
+                   Grid.Row="3" Grid.Column="1"/>
+
+            <Label Text="Fecha de Nacimiento: " Margin="0,10,0,0" 
+                   FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="4" Grid.Column="0" Grid.RowSpan="2"/>
+
+            <DatePicker x:Name="FechaNacimientoEntry" MinimumDate="1/1/1950" MaximumDate="12/12/2018"
+                   Grid.Row="4" Grid.Column="1"/>
+
+            <Label Text="Teléfono: " Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="5" Grid.Column="0"/>
+
+            <Entry x:Name="TelefonoEntry" Placeholder="Telefono" Keyboard="Telephone"
+                   Grid.Row="5" Grid.Column="1" />
+
+            <Label Text="Correo Electronico: " Margin="0,10,0,0" 
+                   FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="6" Grid.ColumnSpan="2" />
+
+            <Entry x:Name="EmailEntry" Placeholder="e-mail" Keyboard="Email"
+                   Grid.Row="7" Grid.ColumnSpan="2"/>
+
+            <Label Text="Sexo:" Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="8" Grid.Column="0"/>
+            <Picker x:Name="Sexo" Title="Selecciona un genero" Grid.Row="8" Grid.Column="1">
+                <Picker.Items>
+                    <x:String>Hombre</x:String>
+                    <x:String>Mujer</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Dirección: " Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="9" Grid.Column="0"/>
+            <Entry x:Name="DireccionEntry" Placeholder="Direccion"
+                   Grid.Row="9" Grid.Column="1"/>
+
+            <Label Text="Ciudad: " Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="10" Grid.Column="0"/>
+            <Picker x:Name="CiudadEntry" Title="Selecciona una ciudad" Grid.Row="10" Grid.Column="1">
+                <Picker.Items>
+                    <x:String>Almeria</x:String>
+                    <x:String>Granada</x:String>
+                    <x:String>Malaga</x:String>
+                    <x:String>Jaen</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Cod. Postal: " Margin="0,10,0,0" FontSize="Medium" FontAttributes="Bold"
+                   Grid.Row="11" Grid.Column="0"/>
+            <Entry x:Name="CodigoPostal" Placeholder="Codigo Postal" Keyboard="Numeric"
+                   Grid.Row="11" Grid.Column="1"/>
+
+            <StackLayout Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2">
+                <Label Text="¿Pagado?" FontSize="Medium" FontAttributes="Bold"/>
+                <Switch x:Name="Pagado" IsToggled="True" HorizontalOptions="Start"/>
+            </StackLayout>
+
+            <Button x:Name="GuardarCliente" Text="Insertar" BorderRadius="25" 
+                    BackgroundColor="{StaticResource ColorBotones}"  TextColor="White"
+                    Margin="10,20,10,0" Clicked="Continue_Tapped"
+                    Grid.Row="13" Grid.ColumnSpan="2"/>
+        </Grid>
+    </ScrollView>
 </ContentPage>

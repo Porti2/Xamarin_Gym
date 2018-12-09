@@ -1,12 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin_Gym.Paginas.ListaClientes">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Lista Clientes"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Xamarin_Gym.Paginas.ListaClientes"
+             Title="Clientes"
+             BackgroundColor="{StaticResource Background}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Page.Resources>
+        <Style x:Key="Enunciados" TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource Enunciados}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ElementResaltados" TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource Resaltar}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ElementNormales" TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="TextColor" Value="{StaticResource Enunciados}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+        <ScrollView Orientation="Horizontal">
+        <ListView ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image WidthRequest="80" HeightRequest="80" VerticalOptions="Start"
+                               Source="chico.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"></Image>
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                                <Label Text="ID: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding ID}" Style="{StaticResource ElementNormales}"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                                <Label Text="Nombre: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Nombre}" Style="{StaticResource ElementResaltados}"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                <Label Text="Telefono: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Telefono}" Style="{StaticResource ElementResaltados}"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label Text="DNI: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding DNI}" Style="{StaticResource ElementNormales}"></Label>
+                                <Label Margin="20,0,0,0" Text="Fech. Nacimiento: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Nacimiento}" Style="{StaticResource ElementNormales}"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label Text="Correo: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Correo}" Style="{StaticResource ElementNormales}"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label Text="Dirección: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Direccion}" Style="{StaticResource ElementNormales}"></Label>
+                                <Label Margin="20,0,0,0" Text="Ciudad: " Style="{StaticResource Enunciados}"></Label>
+                                <Label Text="{Binding Ciudad}" Style="{StaticResource ElementNormales}"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="delete.png" Clicked="Eliminar_Clicked"/>
+        <ToolbarItem Icon="edit.png" Clicked="Editar_Clicked"/>
+    </ContentPage.ToolbarItems>
 </ContentPage>

@@ -9,12 +9,23 @@ using Xamarin.Forms.Xaml;
 
 namespace Xamarin_Gym.Paginas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListaClientes : ContentPage
-	{
-		public ListaClientes ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ListaClientes : ContentPage
+    {
+
+        public ListaClientes()
+        {
+            InitializeComponent();
+        }
+
+        private void Eliminar_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Editar_Clicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

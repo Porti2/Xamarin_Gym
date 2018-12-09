@@ -2,8 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 using Xamarin_Gym.Paginas;
+using Xamarin_Gym.Services;
 
 namespace Xamarin_Gym.ViewModels
 {
@@ -22,26 +25,34 @@ namespace Xamarin_Gym.ViewModels
             get { return new RelayCommand(Navigate); }
         }
 
-        private void Navigate()
+        private async void Navigate()
         {
             App.Master.IsPresented = false;
             switch (PageName)
             {
                 case "AltaEntrenador":
-                    App.Navigator.PushAsync(new AltaEntrenador());
+                    await App.Navigator.PushAsync(new AltaEntrenador());
                     break;
                 case "ListaEntrenadores":
-                    App.Navigator.PushAsync(new ListaEntrenadores());
+                    await App.Navigator.PushAsync(new ListaEntrenadores());
                     break;
                 case "AltaCliente":
-                    App.Navigator.PushAsync(new AltaCliente());
+                    await App.Navigator.PushAsync(new AltaCliente());
                     break;
                 case "ListaClientes":
-                    App.Navigator.PushAsync(new ListaClientes());
+                    await App.Navigator.PushAsync(new ListaClientes());
                     break;
                 default:
                     break;
             }
         }
+        
+        private static async Task Navigate<T>(T page) where T : Page
+        {
+            NavigationPage.SetHasBackButton(page, false);
+            
+            await App.Navigator.PushAsync(page);
+        }
+        
     }
 }

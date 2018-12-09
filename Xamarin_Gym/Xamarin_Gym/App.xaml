@@ -6,9 +6,13 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Colores-->
-            <Color x:Key="BackgroundColor">#EDF4F5</Color>
-            <Color x:Key="MenuColor">#036169</Color>
-            <Color x:Key="AccentColor1">#045659</Color>
+            <Color x:Key="ColorTitulos">#233656</Color>
+            <Color x:Key="ColorBotones">#415B76</Color>
+            <Color x:Key="BackgroundColor">#CDD6D5</Color>
+            <Color x:Key="Resaltar">#8F1D2C</Color>
+            <Color x:Key="Enunciados">#000000</Color>
+            <Color x:Key="Background">#CDD6D5</Color>
+            <Color x:Key="Menu">#02BEC4</Color>
             
             
             <!--Instanciar Menu-->

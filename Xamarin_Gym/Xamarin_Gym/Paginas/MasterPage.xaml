@@ -2,14 +2,15 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:paginas="clr-namespace:Xamarin_Gym.Paginas;assembly=Xamarin_Gym"
-             x:Class="Xamarin_Gym.Paginas.MasterPage">
+             x:Class="Xamarin_Gym.Paginas.MasterPage"
+             Icon="hamburguer.png">
 
     <MasterDetailPage.Master>
         <paginas:Menu></paginas:Menu>
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <NavigationPage x:Name="Navigator" BarBackgroundColor="{StaticResource MenuColor}">
+        <NavigationPage x:Name="Navigator" BarBackgroundColor="{StaticResource ColorBotones}">
             <x:Arguments>
                 <paginas:PaginaView></paginas:PaginaView>
             </x:Arguments>

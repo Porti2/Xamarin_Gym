@@ -2,10 +2,130 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin_Gym.Paginas.PaginaView"
-             BackgroundColor="{StaticResource BackgroundColor}">
-   
-            <Label Text="PaginaView"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-       
+             Title="Home"
+             BackgroundColor="{StaticResource Background}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Page.Resources>
+        <Style x:Key="Titulo" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="TextColor" Value="{StaticResource ColorTitulos}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+
+        <Style x:Key="SubTitulos" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="TextColor" Value="{StaticResource ColorTitulos}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+
+        <Style x:Key="botones" TargetType="Button">
+            <Setter Property="ContentLayout" Value="Left"/>
+            <Setter Property="BorderRadius" Value="25"/>
+            <Setter Property="TextColor" Value="{StaticResource Background}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource ColorBotones}"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Home" Grid.Row="0" Style="{StaticResource Titulo}"/>
+        <Label Text="Entrenadores" Grid.Row="1" Style="{StaticResource SubTitulos}"/>
+
+        <ListView ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" HasUnevenRows="True" Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                <Image WidthRequest="80" HeightRequest="80" VerticalOptions="Center" 
+                                       HorizontalOptions="Center" Source="chico.png"></Image>
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalOptions="Center" Text="{Binding Nombre}"></Label>
+                                    <Label HorizontalOptions="Center" Text="{Binding Telefono}"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Grid Grid.Row="3" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Image="addEntrenador.png" Text="Añadir" Style="{StaticResource botones}" 
+                    Grid.Column="0" Grid.Row="0" Clicked="AddEntrenador"/>
+            <Button Image="entrenador.png" Text="Ver" Style="{StaticResource botones}" 
+                    Grid.Column="1" Grid.Row="0" Clicked="VerEntrenador"/>
+           
+        </Grid>
+
+        <Label Text="Clientes" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource SubTitulos}"/>
+
+        <ListView ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" HasUnevenRows="True" Grid.Row="5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                <Image WidthRequest="80" HeightRequest="80" VerticalOptions="Center" 
+                                       HorizontalOptions="Center" Source="chico.png"></Image>
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalOptions="Center" Text="{Binding Nombre}"></Label>
+                                    <Label HorizontalOptions="Center" Text="{Binding Telefono}"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="6" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Image="add.png" Text="Añadir" Style="{StaticResource botones}" 
+                    Grid.Column="0" Grid.Row="0" Clicked="AddCliente"/>
+            <Button Image="clientes.png" Text="Ver" Style="{StaticResource botones}" 
+                    Grid.Column="1" Grid.Row="0" Clicked="VerCliente"/>
+
+        </Grid>
+
+    </Grid>
+
 </ContentPage>
